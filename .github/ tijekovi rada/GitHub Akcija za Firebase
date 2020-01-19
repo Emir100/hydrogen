@@ -1,0 +1,39 @@
+ime : stvaranje i postavljanje 
+na :
+   pritiskom :
+     grane :
+      - gospodaru
+
+poslovi :
+   graditi :
+     Ime : Gradite 
+    radi-na : Ubuntu-posljednjim 
+    koracima :
+      - ime : Blagajna Repo 
+        namjene : akcija / odjava @ majstor 
+      - Naziv : Instalacija ovisnosti 
+        run : NPM instalaciju 
+      - Naziv : Build 
+        run : NPM run nakupljanje prod 
+      - name : Arhiva Proizvodnja artefakt 
+        namjene : akcija / upload-artefakt @ majstor 
+        sa :
+           imenom : dist 
+          put : dist 
+  implementirati :
+     ime : Potrebe za implementaciju
+     :izrada 
+    pokretanja : ubuntu-najnoviji 
+    koraci :
+      - ime : Blagajna Repo 
+        namjene : akcija / odjava @ majstor 
+      - ime : Preuzimanje artefakt 
+        namjene : akcija / download-artefakt @ majstor 
+        sa :
+           ime : dist 
+      - Naziv : uputiti na Firebase 
+        koristi : w9jds / firebase-action @ majstor 
+        sa :
+           args : implementacija - samo hosting 
+        env :
+           FIREBASE_TOKEN : $ {{secrets.FIREBASE_TOKEN}}
